@@ -7,16 +7,14 @@ def intersection(arrays):
     result = []
     # I need to see if that number exists in another array
     # if it does return the values in a list in any order
-    index = 0
     for arr in arrays: # O(2^n best I could think o smh)
-        current_arr = f"arr{index}"
         for num in arr:
             print("num in arr", arr)
             if num not in num_cache:
-                num_cache[current_arr] = num
+                num_cache[num] = 0
             else:
-                num_cache[current_arr].append(num)
-        index += 1
+                num_cache[num] += 1
+
     print(num_cache)
 
     return result
