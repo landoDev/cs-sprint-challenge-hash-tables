@@ -20,8 +20,6 @@ def reconstruct_trip(tickets, length):
     # intialize the travel cache
     travel_cache = {}
     route = []
-    print(route)
-    start = [ticket for ticket in tickets if ticket.source == "NONE"]
     # find the start looping through tickets
     for ticket in tickets:
         travel_cache[ticket.source] = ticket.destination
@@ -32,20 +30,24 @@ def reconstruct_trip(tickets, length):
         if len(route) == length:
             break
         for ticket in travel_cache:
-            print(travel_cache[ticket])
+            # print(travel_cache[ticket])
+            print(ticket)
             if ticket == "NONE":
                 route.append(travel_cache[ticket])
-            elif route[-1] == ticket:
+            # print(route[:len(route) - 1], ticket)
+            if route[:len(route) - 1] == ticket:
                 route.append(travel_cache[ticket])
-            else:
-                print("why")
 
     # chain them to build the travel cache
     # for length, append travel cache i - 1 to route
     
     # print(travel_cache)
     return route
+# ticket_1 = Ticket("NONE", "PDX")
+# ticket_2 = Ticket("PDX", "DCA")
+# ticket_3 = Ticket("DCA", "NONE")
 
+# tickets = [ticket_1, ticket_2, ticket_3]
 ticket_1 = Ticket("PIT", "ORD")
 ticket_2 = Ticket("XNA", "SAP")
 ticket_3 = Ticket("SFO", "BHM")
