@@ -21,15 +21,15 @@ def reconstruct_trip(tickets, length):
     travel_cache = {}
     route = []
     # find the start looping through tickets
-    for i in range(length):
-        print("loop runs")
-        start = tickets[i].source
-        print(start)
-        next_stop = tickets[i].destination
-        if start == None:
-            travel_cache[start] = next_stop
-    # chain them to build the travel cache
+    for ticket in tickets:
+        if ticket.source == "NONE":
+            start = ticket.source
+            next_stop = ticket.destination
+            travel_cache[ticket.source] = ticket.destination
 
+
+    # chain them to build the travel cache
+    # while self.destination is not none
     # for length, append travel cache i - 1 to route
 
     print(travel_cache)
